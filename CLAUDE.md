@@ -99,3 +99,16 @@ Rules are organized by severity (`error`, `warning`, `info`) and category (viole
 ### Structured Coding Reference
 
 For tool-specific AI coding instructions (Claude Code rules, Cursor MDC, Copilot, Windsurf, etc.), copy the corresponding directory from `structured-coding-with-ai` into this project root.
+
+## MCP Integrations (live 2026-04-09)
+
+The broader NAV suite this action belongs to now has live MCP infrastructure that complements CI scanning:
+
+- **mcp-server-nav-language** — Pure regex MCP server (sub-10ms) enforcing the same 65-rule pattern set at agent runtime via Gary MCP hub Phase 3. This action catches violations in PRs; the MCP server catches them in agent-generated content before it reaches a PR.
+- **lbr8-mcp-constraints** — Bundles 12 offline NAV patterns from this suite as `StaticConstraintSource` middleware for any MCP tool handler.
+- **mcp-server-aha-evaluation** — Uses NAV rules as Stage 1 of a two-stage content evaluation pipeline.
+- **Audit-to-dispatch (decision #37, 2026-04-11)** — NAV violations found during ecosystem audits now auto-dispatch as agent fix tasks. This action's findings feed that pipeline when run in audit mode.
+
+## Decisions Reviewed
+
+Last reviewed: 2026-04-11 (decisions #37 audit-to-dispatch, mcp-server-nav-language live)
