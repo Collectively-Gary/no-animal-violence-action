@@ -29,6 +29,7 @@ runs:
       run: |
         cat > /tmp/.woke.yaml << 'RULES'
         ignore_files:
+        - LICENSE
         - scout.personas.yaml
         - AGENTS.md
         - CLAUDE.md
